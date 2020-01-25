@@ -7,24 +7,67 @@
     <title>3 in ray</title>
 </head>
 <body>
+    <style>
+        section {
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 4px;
+            margin: 0 auto;
+            width: 100px;
+        }
+        div {
+            width: 20px;
+            height: 20px;
+            background: black;
+            margin: 3px;
+            grid-column: 1 span;
+            grid-row: 1 span;
+        }
+    </style>
     <h1>The game of 3 in ray</h1>
     <p>Select one space</p>
     <section>
-        <div id='1' onclick="validateClick('1')"></div>
-        <div id='2'></div>
-        <div id='3'></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div onclick="validateClick(0, 0)"></div>
+        <div onclick="validateClick(0, 1)"></div>
+        <div onclick="validateClick(0, 2)"></div>
+        <div onclick="validateClick(1, 0)"></div>
+        <div onclick="validateClick(1, 1)"></div>
+        <div onclick="validateClick(1, 2)"></div>
+        <div onclick="validateClick(2, 0)"></div>
+        <div onclick="validateClick(2, 1)"></div>
+        <div onclick="validateClick(2, 2)"></div>
     </section>
-    <script>
-        function validateClick (e) {
-            console.log(e)
+    <script type="application/javascript">
+        function validateClick (l, e) {
+            var cube  = [
+            [1, 2, 3], 
+            [4, 5, 6], 
+            [7, 8, 9], 
+        ];
+            function validateWin () {
+                for(var c = 0; c < 3; c++){
+                    if(cube[c][0] == cube[c][1] && cube[c][0] == cube[c][2] ) {
+                        return  true
+                    }
+                    if(cube[0][c] == cube[1][c] && cube[0][c] == cube[2][c]  ) {
+                        return true
+                    }
+                    if(cube[0][0] == cube[1][1] && cube[0][0] == cube[2][2] ){
+                        return true
+                    }
+                    if(cube[0][2] == cube[1][1] && cube[0][0] == cube[3][0] ){
+                        return true
+                    }
+                    else {
+                        return false
+                    }
+                }
+            }
             
+            console.log(validateWin())
         }
+
     </script>
 </body>
 </html>
