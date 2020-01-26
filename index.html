@@ -64,9 +64,27 @@
                     }
                 }
             }
+            function putIn(l,e,letter) {
+                cube[l][e] = letter
+            }
+            function respondeWhit() {
+                switch (key) {
+                    case key.replace(/[0-9]/, 'Y') == 'YXX':
+                        return 0;
+                    case key.replace(/[0-9]/, 'Y') == 'XYX':
+                         return 1;
+                    case key.replace(/[0-9]/, 'Y') == 'XXY':
+                        return 2;
+                    default:
+                        break;
+                }
+
+            }
             
             console.log(validateWin())
         }
+        var key = 'xx3'
+        console.log(key.replace(Number, 'x'))
 
     </script>
 </body>
